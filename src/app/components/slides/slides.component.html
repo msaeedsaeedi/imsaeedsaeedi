@@ -1,0 +1,35 @@
+<div class="slides-container">
+  <div class="slide-container">
+    <div class="slide-content" [class.leading-only]="currentSlide.isLeadingOnly">
+      <h2 class="role-text" [class.leading-text]="currentSlide.isLeadingOnly">
+        {{ currentSlide.title }}
+      </h2>
+      @if (currentSlide.subtitle && !currentSlide.isLeadingOnly) {
+      <p class="subtitle-text">
+        {{ currentSlide.subtitle }}
+      </p>
+      }
+    </div>
+  </div>
+
+  <!-- Slide indicators -->
+  @if (showIndicators && slides.length > 1) {
+  <div class="slide-indicators">
+    @for (slide of slides; track $index; let i = $index) {
+    <button
+      class="indicator"
+      [class.active]="i === currentSlideIndex"
+      [attr.aria-label]="'Go to slide ' + (i + 1)"
+      (click)="goToSlide(i)"
+      (mouseenter)="pauseAnimation()"
+      (mouseleave)="resumeAnimation()"
+    >
+      <div
+        class="progress-ring"
+        [class.animate]="i === currentSlideIndex && !isPaused && autoplay"
+      ></div>
+    </button>
+    }
+  </div>
+  }
+</div>

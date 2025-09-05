@@ -1,16 +1,25 @@
+<app-loading></app-loading>
 <div class="background-image"></div>
 <main #container>
   <!-- Introduction -->
-  <section style="background-color: red;"></section>
-
-  <!-- About Me -->
-  <section style="background-color: blue;"></section>
+  <section class="intro-section">
+    <app-slides 
+      [slides]="introSlides"
+      [animationDuration]="5000"
+      [autoplay]="true"
+      [showIndicators]="true"
+      (slideChange)="onSlideChange($event)">
+    </app-slides>
+  </section>
 
   <!-- Projects -->
-  <section style="background-color: green;"></section>
+  <section class="projects-section">
+    <h2 class="leading-text">Projects</h2>
+  </section>
 
   <!-- Skills -->
-  <section style="background-color: yellow;"></section>
-
+  <section class="skills-section">
+    <h2 class="leading-text">Skills</h2>
+  </section>
 </main>
-<app-scrollbar [mainContainer]="ref"/>
+<app-scrollbar [mainContainer]="ref" />

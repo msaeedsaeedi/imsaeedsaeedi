@@ -1,0 +1,134 @@
+/* Slides Container */
+.slides-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 96px;
+}
+
+.slide-content {
+  text-align: center;
+}
+
+.slide-content.leading-only {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  text-align: right;
+  padding-bottom: 0;
+}
+
+.role-text {
+  font-size: clamp(2rem, 6vw, 8rem);
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.role-text.leading-text {
+  font-size: 9rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+.subtitle-text {
+  font-size: clamp(1rem, 3vw, 2.5rem);
+  font-weight: 400;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Slide Indicators */
+.slide-indicators {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.indicator:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.indicator.active {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.progress-ring {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top: 2px solid rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+.progress-ring.animate {
+  opacity: 1;
+  animation: progressRotate 4s linear;
+}
+
+@keyframes progressRotate {
+  from {
+    transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slide-content {
+    padding: 0 2rem;
+  }
+  
+  .slide-indicators {
+    bottom: 1rem;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .progress-ring {
+    width: 10px;
+    height: 10px;
+  }
+}

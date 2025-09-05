@@ -1,0 +1,144 @@
+/* Loading container - full screen overlay */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Use a solid base color + smooth gradient, then overlay a very low-opacity SVG noise texture to prevent banding */
+  background-color: #111111;
+  background-image: linear-gradient(135deg, #111111 0%, #262626 100%), url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.035'/></svg>");
+  background-blend-mode: overlay;
+  background-size: cover, 64px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeOut 0.8s ease-in-out 2s forwards;
+}
+
+/* Loading content wrapper */
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Morphing loader container */
+.morphing-loader {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Morphing circle animation */
+.morph-circle {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, #ffffff, #e0e0e0);
+  border-radius: 50%;
+  position: relative;
+  animation: 
+    morphShape 2s ease-in-out infinite,
+    pulse 1.5s ease-in-out infinite alternate;
+}
+
+.morph-circle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  background: linear-gradient(45deg, #f0f0f0, #ffffff);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: innerPulse 1.8s ease-in-out infinite alternate;
+}
+
+/* Morphing text */
+.morph-text {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  animation: textFade 2s ease-in-out infinite;
+}
+
+/* Keyframe animations */
+@keyframes morphShape {
+  0%, 100% {
+    border-radius: 50%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 40% 60% 40% 60%;
+    transform: rotate(90deg) scale(1.1);
+  }
+  50% {
+    border-radius: 30% 70% 30% 70%;
+    transform: rotate(180deg) scale(0.9);
+  }
+  75% {
+    border-radius: 60% 40% 60% 40%;
+    transform: rotate(270deg) scale(1.05);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes innerPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.4;
+  }
+}
+
+@keyframes textFade {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .morph-circle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .morph-text {
+    font-size: 1rem;
+  }
+}
