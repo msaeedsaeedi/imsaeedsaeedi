@@ -20,29 +20,34 @@ export class AppComponent {
       title: 'I am Mohammad Saeed',
       subtitle: 'Coder, Poet, and Dreamer',
     },
+  ];
+
+  readonly roleSlides: SlideItem[] = [
     {
       title: 'Project Manager',
-      subtitle: 'Building SaaS MVPs that Scale',
+      description: 'Building SaaS MVPs that Scale',
     },
     {
       title: 'Software Engineer',
-      subtitle: 'Crafting Digital Solutions',
+      description: 'Crafting Digital Solutions',
     },
     {
       title: 'Product Owner',
-      subtitle: 'Turning Ideas into Reality',
+      description: 'Turning Ideas into Reality',
     },
   ];
 
   readonly projectsData: SlideItem[] = [
     {
       title: 'Uniflowco',
-      description: 'An enterprise-level real-time timetable system for universities to streamline tasks. It helps students and faculty stay updated and organized with regular, timely updates, and assists faculty in managing their classes.',
+      description:
+        'An enterprise-level real-time timetable system for universities to streamline tasks. It helps students and faculty stay updated and organized with regular, timely updates, and assists faculty in managing their classes.',
     },
     {
       title: 'Taskana',
-      description: 'A task management SaaS application designed to help teams and individuals organize, prioritize, and track their tasks efficiently. It offers features like task assignment, deadlines, progress tracking, and collaboration tools to enhance productivity.',
-    }
+      description:
+        'A task management SaaS application designed to help teams and individuals organize, prioritize, and track their tasks efficiently. It offers features like task assignment, deadlines, progress tracking, and collaboration tools to enhance productivity.',
+    },
   ];
 
   readonly skillsData: SlideItem[] = [

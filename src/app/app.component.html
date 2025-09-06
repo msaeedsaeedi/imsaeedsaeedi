@@ -2,12 +2,23 @@
 <div class="background-image"></div>
 <main #container>
   <!-- Introduction -->
-  <section class="intro-section">
+   <section class="intro-section">
     <app-slide-showcase
       [items]="introSlides"
       slideType="center"
+      [showIndicators]="false"
+      [titleStyles]="{ textTransform: 'normal' }"
+    />
+  </section>
+  
+  <!-- Roles -->
+  <section class="roles-section">
+    <app-slide-showcase
+      [items]="roleSlides"
+      slideType="normal"
       [animationDuration]="5000"
       [autoplay]="true"
+      leadingText="I AM"
       [showIndicators]="true"
     />
   </section>
