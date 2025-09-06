@@ -1,0 +1,154 @@
+:host {
+  display: block;
+  position: relative;
+  height: 100vh;
+}
+
+/* Leading text - fixed position */
+.leading-text {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  font-size: 8rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: right;
+  margin: 0;
+}
+
+/* Skills content - positioned at bottom left with breathing space */
+.skills-content {
+  position: absolute;
+  bottom: 120px; /* Breathing space from bottom */
+  left: 96px; /* Space for scrollbar (48px + 48px margin) */
+  max-width: 60%; /* Prevent overlap with leading text */
+}
+
+.main-skill {
+  font-size: clamp(3rem, 5vw, 6rem);
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+  line-height: 1.1;
+}
+
+.subskills {
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Indicators - aligned with skills on the left */
+.skill-indicators {
+  position: absolute;
+  bottom: 64px;
+  left: 96px; /* Space for scrollbar (48px + 48px margin) */
+  display: flex;
+  gap: 1rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.indicator:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.indicator.active {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.progress-ring {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top: 2px solid rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+.progress-ring.animate {
+  opacity: 1;
+  animation: progressRotate 3.5s linear;
+}
+
+@keyframes progressRotate {
+  from {
+    transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .leading-text {
+    font-size: 6rem;
+  }
+  
+  .main-skill {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+  }
+  
+  .skills-content {
+    max-width: 65%;
+  }
+}
+
+@media (max-width: 768px) {
+  .leading-text {
+    font-size: 4rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+  
+  .skills-content {
+    bottom: 100px;
+    left: 80px; /* Reduced spacing for mobile */
+    max-width: 70%;
+  }
+  
+  .main-skill {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+  
+  .subskills {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+  }
+  
+  .skill-indicators {
+    bottom: 1rem;
+    left: 80px; /* Reduced spacing for mobile */
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .progress-ring {
+    width: 10px;
+    height: 10px;
+  }
+}

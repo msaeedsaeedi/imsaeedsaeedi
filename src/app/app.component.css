@@ -29,21 +29,20 @@ main {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 
-  position: relative;
   width: 100dvw;
   height: 100dvh;
   overflow-y: auto;
 }
 
-section {
+main > * {
   height: 100dvh;
   scroll-snap-align: start;
-  display: flex;
   position: relative;
 }
 
 /* Introduction Section Styles */
 .intro-section {
+  display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
@@ -51,12 +50,6 @@ section {
 
 .projects-section {
   background-color: hsla(240, 100%, 18%, 0.1);
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-.skills-section {
-  background-color:  hsla(145, 100%, 18%, 0.1);
   justify-content: flex-end;
   align-items: flex-end;
 }

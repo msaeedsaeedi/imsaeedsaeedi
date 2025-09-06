@@ -1,0 +1,38 @@
+<!-- Leading Text on the Right -->
+<h2 class="leading-text">Skills</h2>
+
+<!-- Current Skill on the Left -->
+<div class="skills-content">
+  <div class="skill-group">
+    <h3 class="main-skill">{{ currentSkill.name }}</h3>
+    <div class="subskills">
+      @for (subskill of currentSkill.subskills; track subskill; let isLast =
+      $last) {
+      <span class="subskill"
+        >{{ subskill }}@if (!isLast) {<span class="separator">, </span>}</span
+      >
+      }
+    </div>
+  </div>
+</div>
+
+<!-- Skill indicators -->
+@if (showIndicators() && skills().length > 1) {
+<div class="skill-indicators">
+  @for (skill of skills(); track $index; let i = $index) {
+  <button
+    class="indicator"
+    [class.active]="i === currentSkillIndex"
+    [attr.aria-label]="'Go to skill ' + (i + 1)"
+    (click)="goToSkill(i)"
+    (mouseenter)="pauseAnimation()"
+    (mouseleave)="resumeAnimation()"
+  >
+    <div
+      class="progress-ring"
+      [class.animate]="i === currentSkillIndex && !isPaused && autoplay()"
+    ></div>
+  </button>
+  }
+</div>
+}
