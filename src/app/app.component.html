@@ -3,21 +3,35 @@
 <main #container>
   <!-- Introduction -->
   <section class="intro-section">
-    <app-slides 
-      [slides]="introSlides"
+    <app-slide-showcase
+      [items]="introSlides"
+      slideType="center"
       [animationDuration]="5000"
       [autoplay]="true"
       [showIndicators]="true"
-      (slideChange)="onSlideChange($event)">
-    </app-slides>
+    />
   </section>
 
   <!-- Projects -->
   <section class="projects-section">
-    <h2 class="leading-text">Projects</h2>
+    <app-slide-showcase
+      [items]="projectsData"
+      slideType="normal"
+      leadingText="PROJECTS"
+      [titleStyles]="{ textTransform: 'normal' }"
+      [descriptionStyles]="{ fontSize: '2rem', maxWidth: '55%' }"
+      [leadingTextStyles]="{ fontSize: '6rem' }"
+      [animationDuration]="10000"
+    />
   </section>
 
   <!-- Skills -->
-  <app-skills class="skills-section" [skills]="skillsData"></app-skills>
+  <section class="skills-section">
+    <app-slide-showcase
+      [items]="skillsData"
+      slideType="normal"
+      leadingText="SKILLS"
+    />
+  </section>
 </main>
 <app-scrollbar [mainContainer]="ref" />

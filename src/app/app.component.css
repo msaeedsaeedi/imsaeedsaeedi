@@ -48,8 +48,12 @@ main > * {
   flex-direction: column;
 }
 
+.skills-section {
+  background-color: hsla(100, 100%, 18%, 0.05);
+}
+
 .projects-section {
-  background-color: hsla(240, 100%, 18%, 0.1);
+  background-color: hsla(240, 100%, 18%, 0.05);
   justify-content: flex-end;
   align-items: flex-end;
 }
