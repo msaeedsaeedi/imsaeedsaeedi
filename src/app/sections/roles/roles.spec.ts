@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScrollbarComponent } from './scrollbar.component';
+import { Roles } from './roles';
 
-describe('ScrollbarComponent', () => {
-  let component: ScrollbarComponent;
-  let fixture: ComponentFixture<ScrollbarComponent>;
+describe('Roles', () => {
+  let component: Roles;
+  let fixture: ComponentFixture<Roles>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ScrollbarComponent]
+      imports: [Roles]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ScrollbarComponent);
+    fixture = TestBed.createComponent(Roles);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

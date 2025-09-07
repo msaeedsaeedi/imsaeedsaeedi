@@ -1,17 +1,14 @@
-import { Component } from '@angular/core';
-import {
-  SlideItem,
-  SlidesComponent,
-} from '../../components/slides/slides.component';
+import { Component, signal } from '@angular/core';
+import { SlideItem, Slider } from '../../components/slider/slider';
 
 @Component({
   selector: 'app-roles',
-  imports: [SlidesComponent],
-  templateUrl: './roles.component.html',
-  styleUrl: './roles.component.css',
+  imports: [Slider],
+  templateUrl: './roles.html',
+  styleUrl: './roles.css',
 })
-export class RolesComponent {
-  readonly roles: SlideItem[] = [
+export class Roles {
+  readonly roles = signal<SlideItem[]>([
     {
       title: 'Project Manager',
       description: 'Building SaaS MVPs that Scale',
@@ -24,5 +21,5 @@ export class RolesComponent {
       title: 'Product Owner',
       description: 'Turning Ideas into Reality',
     },
-  ];
+  ]);
 }
