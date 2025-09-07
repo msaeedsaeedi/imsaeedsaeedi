@@ -23,21 +23,6 @@ import { SkillsComponent } from './sections/skills/skills.component';
 export class AppComponent {
   @ViewChild('container', { static: true }) ref!: ElementRef<HTMLElement>;
 
-  readonly roleSlides: SlideItem[] = [
-    {
-      title: 'Project Manager',
-      description: 'Building SaaS MVPs that Scale',
-    },
-    {
-      title: 'Software Engineer',
-      description: 'Crafting Digital Solutions',
-    },
-    {
-      title: 'Product Owner',
-      description: 'Turning Ideas into Reality',
-    },
-  ];
-
   readonly projectsData: SlideItem[] = [
     {
       title: 'Uniflowco',

@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   Component,
+  computed,
   ElementRef,
   inject,
   input,
@@ -30,9 +31,15 @@ export class SlidesComponent implements AfterViewInit, OnDestroy {
   private slideAnimationSubscription?: Subscription;
   private intersectionObserver?: IntersectionObserver;
 
-  currentItem = signal<SlideItem>({ title: '', description: '' });
-  currentItemIndex = signal(0);
   private readonly isVisible = signal(false);
+  currentItemIndex = signal(0);
+  currentItem = computed(() => {
+    const items = this.items();
+    const index = this.currentItemIndex();
+    return items.length > 0 && index >= 0 && index < items.length
+      ? items[index]
+      : { title: '', description: '' };
+  });
 
   ngAfterViewInit(): void {
     this.setupIntersectionObserver();
@@ -73,12 +80,6 @@ export class SlidesComponent implements AfterViewInit, OnDestroy {
   private stopSlideAnimation(): void {
     this.slideAnimationSubscription?.unsubscribe();
     this.slideAnimationSubscription = undefined;
-  }
-
-  goToItem(index: number): void {
-    if (index >= 0 && index < this.items().length) {
-      this.currentItemIndex.set(index);
-    }
   }
 
   ngOnDestroy(): void {
