@@ -20,3 +20,10 @@
   left: -14.5px; /* Center on the 3px line */
   transition: top 0.1s ease-out;
 }
+
+/* Hide on small screens */
+@media (max-width: 768px) {
+  :host {
+    display: none;
+  }
+}

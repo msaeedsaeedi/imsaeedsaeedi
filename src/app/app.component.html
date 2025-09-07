@@ -2,17 +2,19 @@
 <div class="background-image"></div>
 <main #container>
   <!-- Introduction -->
-   <section class="intro-section">
+  <app-introduction />
+  <!-- <section class="intro-section">
     <app-slide-showcase
       [items]="introSlides"
       slideType="center"
       [showIndicators]="false"
       [titleStyles]="{ textTransform: 'normal' }"
     />
-  </section>
-  
+  </section> -->
+
   <!-- Roles -->
-  <section class="roles-section">
+  <app-roles />
+  <!-- <section class="roles-section">
     <app-slide-showcase
       [items]="roleSlides"
       slideType="normal"
@@ -21,10 +23,11 @@
       leadingText="I AM"
       [showIndicators]="true"
     />
-  </section>
+  </section> -->
 
   <!-- Projects -->
-  <section class="projects-section">
+  <app-projects />
+  <!-- <section class="projects-section">
     <app-slide-showcase
       [items]="projectsData"
       slideType="normal"
@@ -34,15 +37,16 @@
       [leadingTextStyles]="{ fontSize: '6rem' }"
       [animationDuration]="10000"
     />
-  </section>
+  </section> -->
 
   <!-- Skills -->
-  <section class="skills-section">
+  <app-skills />
+  <!-- <section class="skills-section">
     <app-slide-showcase
       [items]="skillsData"
       slideType="normal"
       leadingText="SKILLS"
     />
-  </section>
+  </section> -->
 </main>
 <app-scrollbar [mainContainer]="ref" />

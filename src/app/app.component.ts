@@ -1,26 +1,27 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ScrollbarComponent } from './components/scrollbar/scrollbar.component';
 import { LoadingComponent } from './components/loading/loading.component';
-import {
-  SlideShowcaseComponent,
-  SlideItem,
-} from './components/slide-showcase/slide-showcase.component';
+import { SlideItem } from './components/slide-showcase/slide-showcase.component';
+import { IntroductionComponent } from './sections/introduction/introduction.component';
+import { RolesComponent } from './sections/roles/roles.component';
+import { ProjectsComponent } from './sections/projects/projects.component';
+import { SkillsComponent } from './sections/skills/skills.component';
 
 @Component({
   selector: 'app-root',
-  imports: [ScrollbarComponent, LoadingComponent, SlideShowcaseComponent],
+  imports: [
+    ScrollbarComponent,
+    LoadingComponent,
+    IntroductionComponent,
+    RolesComponent,
+    ProjectsComponent,
+    SkillsComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   @ViewChild('container', { static: true }) ref!: ElementRef<HTMLElement>;
-
-  readonly introSlides: SlideItem[] = [
-    {
-      title: 'I am Mohammad Saeed',
-      subtitle: 'Coder, Poet, and Dreamer',
-    },
-  ];
 
   readonly roleSlides: SlideItem[] = [
     {
@@ -72,9 +73,4 @@ export class AppComponent {
         'Git, GitHub, VS Code, Figma, Jira, Postman, Chrome DevTools, Slack, Notion, Trello, Zoom',
     },
   ];
-
-  onSlideChange(slideIndex: number): void {
-    // Handle slide change if needed
-    console.log('Current slide:', slideIndex);
-  }
 }
