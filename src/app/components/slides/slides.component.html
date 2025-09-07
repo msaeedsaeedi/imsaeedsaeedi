@@ -7,15 +7,44 @@
   <!-- Current Item on the Left -->
   <div class="slide">
     <div class="content">
-      <h3
-        class="title"
-        [style.text-transform]="caseInsensitiveTitle() ? 'none' : 'uppercase'"
+      <div
+        class="title-container"
+        #titleContainer
+        [style]="getTitleContainerStyle()"
       >
-        {{ currentItem().title }}
-      </h3>
+        <h3
+          class="title"
+          [style.text-transform]="caseInsensitiveTitle() ? 'none' : 'uppercase'"
+        >
+          {{ currentItem().title }}
+        </h3>
+        <!-- Hidden element to measure upcoming content width -->
+        <h3
+          class="title title-measure"
+          #titleMeasure
+          [style.text-transform]="caseInsensitiveTitle() ? 'none' : 'uppercase'"
+        >
+          {{ getNextItem().title }}
+        </h3>
+        <div
+          class="block-overlay"
+          [@blockSlide]="blockAnimationState()"
+          (@blockSlide.done)="onBlockAnimationDone($event)"
+        ></div>
+      </div>
       @if (currentItem().description) {
-      <div class="description">
-        {{ currentItem().description }}
+      <div class="description-container">
+        <div 
+          class="description"
+          #descriptionElement
+        >
+          {{ currentItem().description }}
+        </div>
+        <div
+          class="description-block-overlay"
+          [@blockSlide]="descriptionBlockAnimationState()"
+          (@blockSlide.done)="onDescriptionBlockAnimationDone($event)"
+        ></div>
       </div>
       }
     </div>
