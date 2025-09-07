@@ -21,6 +21,10 @@ import { interval, Subscription } from 'rxjs';
 export interface SlideItem {
   title: string;
   description?: string;
+  action?: {
+    text: string;
+    url: string;
+  }
 }
 
 @Component({
@@ -75,6 +79,7 @@ export class SlidesComponent implements AfterViewInit, OnDestroy {
   leadingText = input<string>('');
   animationDuration = input<number>(4000);
   caseInsensitiveTitle = input<boolean>(false);
+  textual = input<boolean>(false);
 
   private readonly elementRef = inject(ElementRef);
 

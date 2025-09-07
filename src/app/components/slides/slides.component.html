@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [class.textual]="textual()">
   <!-- Leading Text on the Right -->
   <h2 class="leading-text">
     {{ leadingText() }}
@@ -34,10 +34,7 @@
       </div>
       @if (currentItem().description) {
       <div class="description-container">
-        <div 
-          class="description"
-          #descriptionElement
-        >
+        <div class="description" #descriptionElement>
           {{ currentItem().description }}
         </div>
         <div
@@ -46,6 +43,14 @@
           (@blockSlide.done)="onDescriptionBlockAnimationDone($event)"
         ></div>
       </div>
+      } @if (currentItem().action) {
+      <a
+        class="action"
+        [href]="currentItem().action?.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        >{{ currentItem().action?.text }}</a
+      >
       }
     </div>
     <!-- Item indicators -->
