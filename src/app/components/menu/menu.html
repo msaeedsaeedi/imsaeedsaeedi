@@ -1,11 +1,11 @@
 <div class="menu-container">
-  <div class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen">
+  <div class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen()">
     <span></span>
     <span></span>
     <span></span>
   </div>
   
-  <div class="fullscreen-overlay" [class.active]="isMenuOpen">
+  <div class="fullscreen-overlay" [class.active]="isMenuOpen()">
     <div class="overlay-content">
       <h2>Contact</h2>
       <div class="contact-info">

@@ -1,17 +1,14 @@
-import { Component } from '@angular/core';
-import {
-  SlideItem,
-  SlidesComponent,
-} from '../../components/slides/slides.component';
+import { Component, signal } from '@angular/core';
+import { SlideItem, Slider } from '../../components/slider/slider';
 
 @Component({
   selector: 'app-projects',
-  imports: [SlidesComponent],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.css',
+  imports: [Slider],
+  templateUrl: './projects.html',
+  styleUrl: './projects.css',
 })
-export class ProjectsComponent {
-  readonly projects: SlideItem[] = [
+export class Projects {
+  readonly projects = signal<SlideItem[]>([
     {
       title: 'Uniflowco',
       description:
@@ -30,5 +27,5 @@ export class ProjectsComponent {
         url: 'https://msaeedsaeedi.com',
       },
     },
-  ];
+  ]);
 }

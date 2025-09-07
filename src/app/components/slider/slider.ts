@@ -1,3 +1,4 @@
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import {
   AfterViewInit,
   Component,
@@ -7,15 +8,8 @@ import {
   input,
   OnDestroy,
   signal,
-  ViewChild,
+  viewChild,
 } from '@angular/core';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
 import { interval, Subscription } from 'rxjs';
 
 export interface SlideItem {
@@ -28,10 +22,10 @@ export interface SlideItem {
 }
 
 @Component({
-  selector: 'app-slides',
+  selector: 'app-slider',
   imports: [],
-  templateUrl: './slides.component.html',
-  styleUrl: './slides.component.css',
+  templateUrl: './slider.html',
+  styleUrl: './slider.css',
   animations: [
     trigger('blockSlide', [
       state(
@@ -55,12 +49,8 @@ export interface SlideItem {
           left: '100%',
         })
       ),
-      transition('hidden => covering', [
-        animate('600ms cubic-bezier(0.4, 0, 0.2, 1)'),
-      ]),
-      transition('covering => revealing', [
-        animate('600ms cubic-bezier(0.4, 0, 0.2, 1)'),
-      ]),
+      transition('hidden => covering', [animate('600ms cubic-bezier(0.4, 0, 0.2, 1)')]),
+      transition('covering => revealing', [animate('600ms cubic-bezier(0.4, 0, 0.2, 1)')]),
       transition('revealing => hidden', [animate('0ms')]),
     ]),
     trigger('fadeText', [
@@ -78,16 +68,12 @@ export interface SlideItem {
           transform: 'translateY(10px)',
         })
       ),
-      transition('hidden => visible', [
-        animate('400ms cubic-bezier(0.4, 0, 0.2, 1)'),
-      ]),
-      transition('visible => hidden', [
-        animate('300ms cubic-bezier(0.4, 0, 0.2, 1)'),
-      ]),
+      transition('hidden => visible', [animate('400ms cubic-bezier(0.4, 0, 0.2, 1)')]),
+      transition('visible => hidden', [animate('300ms cubic-bezier(0.4, 0, 0.2, 1)')]),
     ]),
   ],
 })
-export class SlidesComponent implements AfterViewInit, OnDestroy {
+export class Slider implements AfterViewInit, OnDestroy {
   items = input.required<SlideItem[]>();
   leadingText = input<string>('');
   animationDuration = input<number>(4000);
@@ -96,10 +82,7 @@ export class SlidesComponent implements AfterViewInit, OnDestroy {
 
   private readonly elementRef = inject(ElementRef);
 
-  @ViewChild('titleContainer', { static: false }) titleContainer!: ElementRef;
-  @ViewChild('titleMeasure', { static: false }) titleMeasure!: ElementRef;
-  @ViewChild('descriptionElement', { static: false })
-  descriptionElement!: ElementRef;
+  titleMeasure = viewChild.required<ElementRef>('titleMeasure');
 
   private slideAnimationSubscription?: Subscription;
   private intersectionObserver?: IntersectionObserver;
@@ -109,9 +92,16 @@ export class SlidesComponent implements AfterViewInit, OnDestroy {
   blockAnimationState = signal<'hidden' | 'covering' | 'revealing'>('hidden');
   private animationWidth = signal<string>('auto');
   descriptionAnimationState = signal<'visible' | 'hidden'>('visible');
-  descriptionBlockAnimationState = signal<'hidden' | 'covering' | 'revealing'>(
-    'hidden'
-  );
+  descriptionBlockAnimationState = signal<'hidden' | 'covering' | 'revealing'>('hidden');
+
+  ngAfterViewInit(): void {
+    this.setupIntersectionObserver();
+  }
+
+  ngOnDestroy(): void {
+    this.stopSlideAnimation();
+    this.intersectionObserver?.disconnect();
+  }
 
   currentItem = computed(() => {
     const items = this.items();
@@ -127,10 +117,6 @@ export class SlidesComponent implements AfterViewInit, OnDestroy {
     return items.length > 0 && nextIndex >= 0 && nextIndex < items.length
       ? items[nextIndex]
       : { title: '', description: '' };
-  }
-
-  ngAfterViewInit(): void {
-    this.setupIntersectionObserver();
   }
 
   private setupIntersectionObserver(): void {
@@ -156,17 +142,15 @@ export class SlidesComponent implements AfterViewInit, OnDestroy {
       return;
     }
 
-    this.slideAnimationSubscription = interval(
-      this.animationDuration()
-    ).subscribe(() => {
+    this.slideAnimationSubscription = interval(this.animationDuration()).subscribe(() => {
       this.performSlideTransition();
     });
   }
 
   private performSlideTransition(): void {
     // Calculate upcoming content width before starting animation
-    if (this.titleMeasure?.nativeElement) {
-      const upcomingWidth = this.titleMeasure.nativeElement.offsetWidth;
+    if (this.titleMeasure().nativeElement) {
+      const upcomingWidth = this.titleMeasure().nativeElement.offsetWidth;
       this.animationWidth.set(`${upcomingWidth}px`);
     }
 
@@ -185,9 +169,7 @@ export class SlidesComponent implements AfterViewInit, OnDestroy {
 
     if (currentState === 'covering') {
       // Title block has covered the text, now change the content
-      this.currentItemIndex.update(
-        (index) => (index + 1) % this.items().length
-      );
+      this.currentItemIndex.update((index) => (index + 1) % this.items().length);
       // Start revealing the new text
       this.blockAnimationState.set('revealing');
     } else if (currentState === 'revealing') {
@@ -225,10 +207,5 @@ export class SlidesComponent implements AfterViewInit, OnDestroy {
     this.stopSlideAnimation();
     this.currentItemIndex.set(index);
     this.startSlideAnimation();
-  }
-
-  ngOnDestroy(): void {
-    this.stopSlideAnimation();
-    this.intersectionObserver?.disconnect();
   }
 }
