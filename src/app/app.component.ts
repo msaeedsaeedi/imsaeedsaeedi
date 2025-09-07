@@ -5,6 +5,7 @@ import { IntroductionComponent } from './sections/introduction/introduction.comp
 import { RolesComponent } from './sections/roles/roles.component';
 import { ProjectsComponent } from './sections/projects/projects.component';
 import { SkillsComponent } from './sections/skills/skills.component';
+import { MenuComponent } from "./components/menu/menu.component";
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ import { SkillsComponent } from './sections/skills/skills.component';
     RolesComponent,
     ProjectsComponent,
     SkillsComponent,
-  ],
+    MenuComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
