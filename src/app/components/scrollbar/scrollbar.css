@@ -1,0 +1,29 @@
+/* Container for the scrollbar */
+.scrollbar-container {
+  position: fixed;
+  left: 48px;
+  top: 32px;
+  bottom: 32px;
+  width: 3px;
+  height: calc(100vh - 64px);
+  z-index: 10;
+}
+
+/* Thumb of the scrollbar */
+.scrollbar-thumb {
+  position: absolute;
+  width: 32px; /* Diameter for 32px radius */
+  height: 32px;
+  background: white;
+  border-radius: 50%;
+  top: 0;
+  left: -14.5px; /* Center on the 3px line */
+  transition: top 0.1s ease-out;
+}
+
+/* Hide on small screens */
+@media (max-width: 768px) {
+  :host {
+    mix-blend-mode: overlay;
+  }
+}
