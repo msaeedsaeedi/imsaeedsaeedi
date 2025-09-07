@@ -1,0 +1,29 @@
+<div class="container">
+  <!-- Leading Text on the Right -->
+  <h2 class="leading-text">
+    {{ leadingText() }}
+  </h2>
+
+  <!-- Current Item on the Left -->
+  <div class="slide">
+    <div class="content">
+      <h3
+        class="title"
+        [style.text-transform]="caseInsensitiveTitle() ? 'none' : 'uppercase'"
+      >
+        {{ currentItem().title }}
+      </h3>
+      @if (currentItem().description) {
+      <div class="description">
+        {{ currentItem().description }}
+      </div>
+      }
+    </div>
+    <!-- Item indicators -->
+    <div class="item-indicators">
+      @for (item of items(); track $index; let i = $index) {
+      <i class="indicator" [class.active]="i === currentItemIndex()"></i>
+      }
+    </div>
+  </div>
+</div>

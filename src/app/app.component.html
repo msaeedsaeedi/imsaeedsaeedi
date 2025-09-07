@@ -2,47 +2,16 @@
 <div class="background-image"></div>
 <main #container>
   <!-- Introduction -->
-   <section class="intro-section">
-    <app-slide-showcase
-      [items]="introSlides"
-      slideType="center"
-      [showIndicators]="false"
-      [titleStyles]="{ textTransform: 'normal' }"
-    />
-  </section>
-  
+  <app-introduction />
+
   <!-- Roles -->
-  <section class="roles-section">
-    <app-slide-showcase
-      [items]="roleSlides"
-      slideType="normal"
-      [animationDuration]="5000"
-      [autoplay]="true"
-      leadingText="I AM"
-      [showIndicators]="true"
-    />
-  </section>
+  <app-roles />
 
   <!-- Projects -->
-  <section class="projects-section">
-    <app-slide-showcase
-      [items]="projectsData"
-      slideType="normal"
-      leadingText="PROJECTS"
-      [titleStyles]="{ textTransform: 'normal' }"
-      [descriptionStyles]="{ fontSize: '2rem', maxWidth: '55%' }"
-      [leadingTextStyles]="{ fontSize: '6rem' }"
-      [animationDuration]="10000"
-    />
-  </section>
+  <app-projects />
 
   <!-- Skills -->
-  <section class="skills-section">
-    <app-slide-showcase
-      [items]="skillsData"
-      slideType="normal"
-      leadingText="SKILLS"
-    />
-  </section>
+  <app-skills />
+  
 </main>
 <app-scrollbar [mainContainer]="ref" />

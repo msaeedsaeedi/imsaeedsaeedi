@@ -35,13 +35,14 @@ main {
 }
 
 main > * {
+  display: block;
   height: 100dvh;
   scroll-snap-align: start;
   position: relative;
 }
 
 /* Introduction Section Styles */
-.intro-section {
+/* .intro-section {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -66,4 +67,4 @@ main > * {
   margin: 0;
   padding: 32px;
   text-align: right;
-}
+} */
