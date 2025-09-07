@@ -25,6 +25,7 @@ export class SlidesComponent implements AfterViewInit, OnDestroy {
   items = input.required<SlideItem[]>();
   leadingText = input<string>('');
   animationDuration = input<number>(4000);
+  caseInsensitiveTitle = input<boolean>(false);
 
   private readonly elementRef = inject(ElementRef);
 
