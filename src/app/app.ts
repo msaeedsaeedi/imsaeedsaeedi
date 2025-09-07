@@ -1,12 +1,18 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, ElementRef, signal, viewChild } from '@angular/core';
+import { Loading } from './components/loading/loading';
+import { Menu } from './components/menu/menu';
+import { Introduction } from './sections/introduction/introduction';
+import { Roles } from './sections/roles/roles';
+import { Projects } from './sections/projects/projects';
+import { Skills } from './sections/skills/skills';
+import { Scrollbar } from './components/scrollbar/scrollbar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Loading, Menu, Introduction, Roles, Projects, Skills, Scrollbar],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('msaeedsaeedi');
+  ref = viewChild.required<ElementRef<HTMLElement>>('container');
 }

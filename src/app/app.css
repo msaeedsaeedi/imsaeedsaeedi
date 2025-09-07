@@ -1,0 +1,42 @@
+.background-image {
+  width: 100dvw;
+  height: 100dvh;
+  background-image: url("/myself.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+
+  opacity: 0.8;
+  mix-blend-mode: lighten;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+main::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  scrollbar-width: none; /* Firefox */
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+  width: 100dvw;
+  height: 100dvh;
+  overflow-y: auto;
+}
+
+main > * {
+  display: block;
+  height: 100dvh;
+  scroll-snap-align: start;
+  position: relative;
+}
