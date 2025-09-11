@@ -1,4 +1,4 @@
-import { Component, ElementRef, signal, viewChild, inject, DOCUMENT } from '@angular/core';
+import { Component, ElementRef, viewChild, inject, DOCUMENT } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Loading } from './components/loading/loading';
 import { Menu } from './components/menu/menu';
@@ -135,7 +135,8 @@ export class App {
       "jobTitle": "Full-Stack Developer",
       "url": `${baseUrl}/`,
       "image": `${baseUrl}/myself.png`,
-      "description": "Full-stack developer specializing in SaaS platforms, dashboards, and cloud-native apps using Next.js, NestJS, PostgreSQL, and Stripe. Building fast MVPs for startups from $2.5k+."
+      "description": "Full-stack developer specializing in SaaS platforms, dashboards, and cloud-native apps using Next.js, NestJS, PostgreSQL, and Stripe. Building fast MVPs for startups from $2.5k+.",
+      "email": "contact@msaeedsaeedi.com"
     };
 
     // Create script element for structured data

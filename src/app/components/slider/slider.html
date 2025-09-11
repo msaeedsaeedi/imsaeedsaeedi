@@ -7,15 +7,8 @@
   <!-- Current Item on the Left -->
   <div class="slide">
     <div class="content">
-      <div
-        class="title-container"
-        #titleContainer
-        [style]="getTitleContainerStyle()"
-      >
-        <h3
-          class="title"
-          [style.text-transform]="caseInsensitiveTitle() ? 'none' : 'uppercase'"
-        >
+      <div class="title-container" #titleContainer [style]="getTitleContainerStyle()">
+        <h3 class="title" [style.text-transform]="caseInsensitiveTitle() ? 'none' : 'uppercase'">
           {{ currentItem().title }}
         </h3>
         <!-- Hidden element to measure upcoming content width -->
@@ -29,7 +22,7 @@
         <div
           class="block-overlay"
           [@blockSlide]="blockAnimationState()"
-          (@blockSlide.done)="onBlockAnimationDone($event)"
+          (@blockSlide.done)="onBlockAnimationDone()"
         ></div>
       </div>
       @if (currentItem().description) {
@@ -40,7 +33,7 @@
         <div
           class="description-block-overlay"
           [@blockSlide]="descriptionBlockAnimationState()"
-          (@blockSlide.done)="onDescriptionBlockAnimationDone($event)"
+          (@blockSlide.done)="onDescriptionBlockAnimationDone()"
         ></div>
       </div>
       } @if (currentItem().action) {
@@ -60,6 +53,7 @@
         class="indicator"
         [class.active]="i === currentItemIndex()"
         (click)="gotoSlide(i)"
+        [attr.aria-label]="'Go to slide ' + (i + 1)"
       ></button>
       }
     </div>

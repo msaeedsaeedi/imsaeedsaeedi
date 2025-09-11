@@ -1,4 +1,5 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { isPlatformBrowser } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -7,6 +8,7 @@ import {
   inject,
   input,
   OnDestroy,
+  PLATFORM_ID,
   signal,
   viewChild,
 } from '@angular/core';
@@ -81,6 +83,7 @@ export class Slider implements AfterViewInit, OnDestroy {
   textual = input<boolean>(false);
 
   private readonly elementRef = inject(ElementRef);
+  private platformId = inject(PLATFORM_ID);
 
   titleMeasure = viewChild.required<ElementRef>('titleMeasure');
 
@@ -95,6 +98,7 @@ export class Slider implements AfterViewInit, OnDestroy {
   descriptionBlockAnimationState = signal<'hidden' | 'covering' | 'revealing'>('hidden');
 
   ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
     this.setupIntersectionObserver();
   }
 
@@ -163,9 +167,8 @@ export class Slider implements AfterViewInit, OnDestroy {
     }, 150); // 150ms delay after title animation starts
   }
 
-  onBlockAnimationDone(event: any): void {
+  onBlockAnimationDone(): void {
     const currentState = this.blockAnimationState();
-    const descriptionState = this.descriptionBlockAnimationState();
 
     if (currentState === 'covering') {
       // Title block has covered the text, now change the content
@@ -179,7 +182,7 @@ export class Slider implements AfterViewInit, OnDestroy {
     }
   }
 
-  onDescriptionBlockAnimationDone(event: any): void {
+  onDescriptionBlockAnimationDone(): void {
     const descriptionState = this.descriptionBlockAnimationState();
 
     if (descriptionState === 'covering') {

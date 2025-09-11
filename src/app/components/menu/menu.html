@@ -1,25 +1,36 @@
 <div class="menu-container">
-  <div class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen()">
+  <div
+    class="hamburger"
+    tabindex="0"
+    (click)="toggleMenu()"
+    (keydown.enter)="toggleMenu()"
+    (keydown.space)="toggleMenu()"
+    [class.active]="isMenuOpen()"
+  >
     <span></span>
     <span></span>
     <span></span>
   </div>
-  
+
   <div class="fullscreen-overlay" [class.active]="isMenuOpen()">
     <div class="overlay-content">
       <h2>Contact</h2>
       <div class="contact-info">
         <div class="contact-item">
           <span class="contact-label">LinkedIn</span>
-          <a href="https://linkedin.com/in/msaeedsaeedi" target="_blank" rel="noopener noreferrer">linkedin.com/in/msaeedsaeedi</a>
+          <a href="https://linkedin.com/in/msaeedsaeedi" target="_blank" rel="noopener noreferrer"
+            >linkedin.com/in/msaeedsaeedi</a
+          >
         </div>
         <div class="contact-item">
           <span class="contact-label">GitHub</span>
-          <a href="https://github.com/msaeedsaeedi" target="_blank" rel="noopener noreferrer">github.com/msaeedsaeedi</a>
+          <a href="https://github.com/msaeedsaeedi" target="_blank" rel="noopener noreferrer"
+            >github.com/msaeedsaeedi</a
+          >
         </div>
         <div class="contact-item">
           <span class="contact-label">Email</span>
-          <a href="mailto:msaeedsaeedi@outlook.com">msaeedsaeedi&#64;outlook.com</a>
+          <a href="mailto:contact@msaeedsaeedi.com">contact&#64;msaeedsaeedi.com</a>
         </div>
       </div>
     </div>
