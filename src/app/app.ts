@@ -1,4 +1,4 @@
-import { Component, ElementRef, signal, viewChild, inject, DOCUMENT } from '@angular/core';
+import { Component, ElementRef, viewChild, inject, DOCUMENT } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Loading } from './components/loading/loading';
 import { Menu } from './components/menu/menu';
