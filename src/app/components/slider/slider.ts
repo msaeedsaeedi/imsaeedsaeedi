@@ -35,21 +35,21 @@ export interface SlideItem {
         style({
           width: '0%',
           left: '0%',
-        })
+        }),
       ),
       state(
         'covering',
         style({
           width: '100%',
           left: '0%',
-        })
+        }),
       ),
       state(
         'revealing',
         style({
           width: '0%',
           left: '100%',
-        })
+        }),
       ),
       transition('hidden => covering', [animate('600ms cubic-bezier(0.4, 0, 0.2, 1)')]),
       transition('covering => revealing', [animate('600ms cubic-bezier(0.4, 0, 0.2, 1)')]),
@@ -61,14 +61,14 @@ export interface SlideItem {
         style({
           opacity: 1,
           transform: 'translateY(0)',
-        })
+        }),
       ),
       state(
         'hidden',
         style({
           opacity: 0,
           transform: 'translateY(10px)',
-        })
+        }),
       ),
       transition('hidden => visible', [animate('400ms cubic-bezier(0.4, 0, 0.2, 1)')]),
       transition('visible => hidden', [animate('300ms cubic-bezier(0.4, 0, 0.2, 1)')]),
@@ -135,7 +135,7 @@ export class Slider implements AfterViewInit, OnDestroy {
           this.stopSlideAnimation();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     this.intersectionObserver.observe(this.elementRef.nativeElement);

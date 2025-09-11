@@ -26,35 +26,36 @@
         ></div>
       </div>
       @if (currentItem().description) {
-      <div class="description-container">
-        <div class="description" #descriptionElement>
-          {{ currentItem().description }}
+        <div class="description-container">
+          <div class="description" #descriptionElement>
+            {{ currentItem().description }}
+          </div>
+          <div
+            class="description-block-overlay"
+            [@blockSlide]="descriptionBlockAnimationState()"
+            (@blockSlide.done)="onDescriptionBlockAnimationDone()"
+          ></div>
         </div>
-        <div
-          class="description-block-overlay"
-          [@blockSlide]="descriptionBlockAnimationState()"
-          (@blockSlide.done)="onDescriptionBlockAnimationDone()"
-        ></div>
-      </div>
-      } @if (currentItem().action) {
-      <a
-        class="action"
-        [href]="currentItem().action?.url"
-        target="_blank"
-        rel="noopener noreferrer"
-        >{{ currentItem().action?.text }}</a
-      >
+      }
+      @if (currentItem().action) {
+        <a
+          class="action"
+          [href]="currentItem().action?.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{ currentItem().action?.text }}</a
+        >
       }
     </div>
     <!-- Item indicators -->
     <div class="item-indicators">
       @for (item of items(); track $index; let i = $index) {
-      <button
-        class="indicator"
-        [class.active]="i === currentItemIndex()"
-        (click)="gotoSlide(i)"
-        [attr.aria-label]="'Go to slide ' + (i + 1)"
-      ></button>
+        <button
+          class="indicator"
+          [class.active]="i === currentItemIndex()"
+          (click)="gotoSlide(i)"
+          [attr.aria-label]="'Go to slide ' + (i + 1)"
+        ></button>
       }
     </div>
   </div>

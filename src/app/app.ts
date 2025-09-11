@@ -30,7 +30,8 @@ export class App {
   private setSEOMetadata(): void {
     const baseUrl = environment.baseUrl;
     const title = 'Portfolio - Mohammad Saeed | Full-Stack Developer';
-    const description = 'Full-stack developer specializing in SaaS platforms, dashboards, and cloud-native apps using Next.js, NestJS, PostgreSQL, and Stripe. Building fast MVPs for startups from $2.5k+.';
+    const description =
+      'Full-stack developer specializing in SaaS platforms, dashboards, and cloud-native apps using Next.js, NestJS, PostgreSQL, and Stripe. Building fast MVPs for startups from $2.5k+.';
     const ogImageUrl = `${baseUrl}/og_image.png`;
     const canonicalUrl = `${baseUrl}/`;
 
@@ -40,103 +41,104 @@ export class App {
     // Set meta description
     this.meta.updateTag({
       name: 'description',
-      content: description
+      content: description,
     });
 
     // Set meta keywords
     this.meta.updateTag({
       name: 'keywords',
-      content: 'Mohammad Saeed, portfolio, full-stack developer, Angular, web development'
+      content: 'Mohammad Saeed, portfolio, full-stack developer, Angular, web development',
     });
 
     // Set meta author
     this.meta.updateTag({
       name: 'author',
-      content: 'Mohammad Saeed'
+      content: 'Mohammad Saeed',
     });
 
     // Set canonical URL
     this.meta.updateTag({
       rel: 'canonical',
-      href: canonicalUrl
+      href: canonicalUrl,
     });
 
     // Open Graph / Facebook meta tags
     this.meta.updateTag({
       property: 'og:type',
-      content: 'website'
+      content: 'website',
     });
 
     this.meta.updateTag({
       property: 'og:url',
-      content: canonicalUrl
+      content: canonicalUrl,
     });
 
     this.meta.updateTag({
       property: 'og:title',
-      content: title
+      content: title,
     });
 
     this.meta.updateTag({
       property: 'og:description',
-      content: description
+      content: description,
     });
 
     this.meta.updateTag({
       property: 'og:image',
-      content: ogImageUrl
+      content: ogImageUrl,
     });
 
     // Twitter meta tags
     this.meta.updateTag({
       property: 'twitter:card',
-      content: 'summary_large_image'
+      content: 'summary_large_image',
     });
 
     this.meta.updateTag({
       property: 'twitter:url',
-      content: canonicalUrl
+      content: canonicalUrl,
     });
 
     this.meta.updateTag({
       property: 'twitter:title',
-      content: title
+      content: title,
     });
 
     this.meta.updateTag({
       property: 'twitter:description',
-      content: description
+      content: description,
     });
 
     this.meta.updateTag({
       property: 'twitter:image',
-      content: ogImageUrl
+      content: ogImageUrl,
     });
 
     // Add meta robots for indexing
     this.meta.updateTag({
       name: 'robots',
-      content: 'index, follow'
+      content: 'index, follow',
     });
 
     // Add language meta
     this.meta.updateTag({
       name: 'language',
-      content: 'en'
+      content: 'en',
     });
   }
 
   private setStructuredData(): void {
     const baseUrl = environment.baseUrl;
     const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Mohammad Saeed",
-      "jobTitle": "Full-Stack Developer",
-      "url": `${baseUrl}/`,
-      "image": `${baseUrl}/myself.png`,
-      "description": "Full-stack developer specializing in SaaS platforms, dashboards, and cloud-native apps using Next.js, NestJS, PostgreSQL, and Stripe. Building fast MVPs for startups from $2.5k+.",
-      "email": "contact@msaeedsaeedi.com"
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Mohammad Saeed',
+      jobTitle: 'Full-Stack Developer',
+      url: `${baseUrl}/`,
+      image: `${baseUrl}/myself.png`,
+      description:
+        'Full-stack developer specializing in SaaS platforms, dashboards, and cloud-native apps using Next.js, NestJS, PostgreSQL, and Stripe. Building fast MVPs for startups from $2.5k+.',
+      email: 'contact@msaeedsaeedi.com',
     };
 
     // Create script element for structured data

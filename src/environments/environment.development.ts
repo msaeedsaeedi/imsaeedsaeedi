@@ -1,5 +1,5 @@
-import { Environment } from "../app/types/environment";
+import { Environment } from '../app/types/environment';
 
 export const environment: Environment = {
-    baseUrl: "http://localhost:4200"
+  baseUrl: 'http://localhost:4200',
 };

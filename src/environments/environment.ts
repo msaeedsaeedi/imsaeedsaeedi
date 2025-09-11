@@ -1,5 +1,5 @@
-import { Environment } from "../app/types/environment";
+import { Environment } from '../app/types/environment';
 
 export const environment: Environment = {
-    baseUrl: "https://msaeedsaeedi.com"
+  baseUrl: 'https://msaeedsaeedi.com',
 };

@@ -32,7 +32,7 @@ export class Scrollbar implements AfterViewInit, OnDestroy {
       'scroll',
       () => {
         this.updateScrollbar();
-      }
+      },
     );
   }
 
@@ -71,7 +71,7 @@ export class Scrollbar implements AfterViewInit, OnDestroy {
     thumbTop: number,
     thumbHeight: number,
     containerHeight: number,
-    scrollbarContainerElement: HTMLDivElement
+    scrollbarContainerElement: HTMLDivElement,
   ) {
     const center = thumbTop + thumbHeight / 2;
     const percent = (center / containerHeight) * 100;
