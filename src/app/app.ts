@@ -8,10 +8,11 @@ import { Projects } from './sections/projects/projects';
 import { Skills } from './sections/skills/skills';
 import { Scrollbar } from './components/scrollbar/scrollbar';
 import { environment } from '../environments/environment';
+import { Contact } from './sections/contact/contact';
 
 @Component({
   selector: 'app-root',
-  imports: [Loading, Menu, Introduction, Roles, Projects, Skills, Scrollbar],
+  imports: [Loading, Menu, Introduction, Roles, Projects, Skills, Scrollbar, Contact],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
