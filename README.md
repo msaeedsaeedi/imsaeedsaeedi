@@ -1,59 +1,165 @@
-# Msaeedsaeedi
+# Mohammad Saeed - Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.2.
+[![Deployment Status](https://img.shields.io/badge/deployment-live-brightgreen)](https://msaeedsaeedi.com)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://staging.imsaeedsaeedi.pages.dev)
+[![Angular](https://img.shields.io/badge/Angular-20.3.0-red)](https://angular.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue)](https://www.typescriptlang.org)
+[![Node.js](https://img.shields.io/badge/Node.js-24-green)](https://nodejs.org)
 
-## Development server
+A modern, responsive portfolio website showcasing the professional profile, projects, skills, and experience of Mohammad Saeed - a full-stack developer specializing in SaaS platforms, dashboards, and cloud-native applications.
 
-To start a local development server, run:
+## 🚀 Live Demo
 
+- **Production:** [https://msaeedsaeedi.com](https://msaeedsaeedi.com)
+- **Staging:** [https://staging.imsaeedsaeedi.pages.dev](https://staging.imsaeedsaeedi.pages.dev)
+
+## 🛠️ Technology Stack
+
+### Frontend Framework
+- **Angular** 20.3.0
+
+### Development Tools
+- **Angular CLI** 20.3.1
+- **ESLint** 9.33.0 with Angular ESLint rules
+- **Prettier** with custom configuration
+- **Karma** & **Jasmine** for unit testing
+
+### Runtime & Package Management
+- **Node.js** 24 (required engine version)
+- **pnpm** 10.15.1 (package manager)
+
+### Deployment
+- **Cloudflare Pages** for hosting and CDN
+- **Automated builds** with environment-specific configurations
+
+## 📋 Prerequisites
+
+Before running this project locally, ensure you have the following installed:
+
+- **Node.js** 24 or higher
+- **pnpm** 10.15.1 or higher
+- **Angular CLI** 20.3.1 or higher
+
+## 🏃‍♂️ Getting Started
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/msaeedsaeedi/imsaeedsaeedi.git
+   cd imsaeedsaeedi
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
+
+### Development
+
+1. **Start the development server:**
+   ```bash
+   pnpm start
+   ```
+   or
+   ```bash
+   ng serve
+   ```
+
+2. **Open your browser** and navigate to `http://localhost:4200/`
+
+The application will automatically reload when you modify source files.
+
+### Building
+
+#### Development Build
 ```bash
-ng serve
+pnpm run build
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+#### Production Build
 ```bash
-ng generate component component-name
+ng build --configuration=production
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+#### Cloudflare Pages Build
 ```bash
-ng generate --help
+pnpm run build:cloudflare
 ```
 
-## Building
+### Testing
 
-To build the project run:
-
+#### Unit Tests
 ```bash
-ng build
+pnpm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+#### Linting
 ```bash
-ng test
+pnpm run lint
 ```
 
-## Running end-to-end tests
+### Server-Side Rendering
 
-For end-to-end (e2e) testing, run:
+To run the SSR server locally:
 
 ```bash
-ng e2e
+pnpm run build
+pnpm run serve:ssr:msaeedsaeedi
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 🏗️ Project Architecture
 
-## Additional Resources
+This portfolio application follows Angular best practices and modern development patterns:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Standalone Components** - No NgModules, pure standalone architecture
+- **Signal-based State Management** - Reactive state with Angular signals
+- **Server-Side Rendering** - Enhanced SEO and performance
+- **Responsive Design** - Mobile-first approach
+- **Component-based Architecture** - Modular and reusable components
+
+### Key Features
+
+- **Interactive Sections:** Introduction, Professional Roles, Projects, Skills
+- **Smooth Animations** and responsive design
+- **SEO Optimized** with meta tags and structured data
+- **Custom Scrollbar** and navigation components
+- **Type-safe Development** with strict TypeScript configuration
+
+## 🤝 Contributing
+
+We welcome contributions to improve this portfolio project. Please follow these guidelines:
+
+### Development Workflow
+
+1. **Fork the repository** and create a new branch from `develop`
+2. **Make your changes** following the coding standards below
+3. **Test thoroughly** - ensure all tests pass
+4. **Submit a pull request** with a clear description of changes
+
+### Coding Standards
+
+- **TypeScript:** Use strict type checking, avoid `any` type
+- **Angular:** Follow Angular style guide and best practices
+- **Components:** Keep components small and focused
+- **Testing:** Write unit tests for new components and services
+- **Linting:** Code must pass ESLint checks
+- **Formatting:** Code must be formatted with Prettier
+
+### Commit Convention
+
+Follow conventional commit format:
+```
+type(scope): description
+
+feat: add new skill section
+fix: resolve mobile navigation issue
+docs: update README
+```
+
+### Code Review Process
+
+1. All pull requests require code review
+2. Ensure CI checks pass (linting, testing, building)
+3. Update documentation if necessary
+4. Maintain backward compatibility
