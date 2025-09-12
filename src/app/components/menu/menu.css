@@ -1,0 +1,200 @@
+:host {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.menu-container {
+  position: relative;
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1002;
+  position: relative;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 1px;
+  transition: all 0.4s ease-in-out;
+  transform-origin: center;
+}
+
+/* Hamburger color change when overlay is active */
+.hamburger.active span {
+  background-color: #333;
+}
+
+/* Hamburger Animation to X */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(10.5px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-10.5px) rotate(-45deg);
+}
+
+/* Fullscreen Overlay */
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+.fullscreen-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 50%;
+  transform: scale(0);
+  transform-origin: center;
+  transition: transform 0.8s ease-in-out;
+}
+
+.fullscreen-overlay.active {
+  pointer-events: auto;
+}
+
+.fullscreen-overlay.active::before {
+  transform: scale(50);
+}
+
+/* Overlay Content */
+.overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #333;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out 0.4s;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.fullscreen-overlay.active .overlay-content {
+  opacity: 1;
+}
+
+.overlay-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.contact-item a {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: all 0.3s ease;
+  letter-spacing: -0.01em;
+}
+
+.contact-item a:hover {
+  color: #0066cc;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+/* Desktop layout - row direction for larger screens */
+@media (min-width: 768px) {
+  .contact-info {
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  .contact-item {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .overlay-content h2 {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .contact-item a {
+    font-size: 1.25rem;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .overlay-content h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-info {
+    gap: 2rem;
+  }
+
+  .contact-item a {
+    font-size: 1rem;
+  }
+}

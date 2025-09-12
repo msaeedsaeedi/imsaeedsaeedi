@@ -1,27 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
-    --background-color: #0C0B0B;
-    --text-color: #FFFFFF;
+  --background-color: #0c0b0b;
+  --text-color: #ffffff;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    width: 100dvw;
-    min-height: 100dvh;
-    
-    background-color: var(--background-color);
-    color: var(--text-color);
-    
-    font-family: "Inter", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  width: 100dvw;
+  min-height: 100dvh;
 
-    user-select: none;
-    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="%23FFFFFF" d="M4.5.79v22.42l6.56-6.57h9.29L4.5.79z"></path></svg>') 12 12, auto;
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  user-select: none;
+  cursor:
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="%23FFFFFF" d="M4.5.79v22.42l6.56-6.57h9.29L4.5.79z"></path></svg>')
+      12 12,
+    auto;
 }
