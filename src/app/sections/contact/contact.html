@@ -101,6 +101,7 @@
         <p class="success-message">Thank you for reaching out. I'll get back to you soon.</p>
       </div>
     }
+    <ngx-turnstile [siteKey]="siteKey()" theme="auto" formControlName="token" (resolved)="onTurnstileToken($event)"></ngx-turnstile>
   </form>
 
   <aside class="contact-info">

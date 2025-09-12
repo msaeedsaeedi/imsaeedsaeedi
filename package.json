@@ -40,6 +40,8 @@
     "@angular/router": "^20.3.0",
     "@angular/ssr": "^20.2.2",
     "express": "^5.1.0",
+    "ngx-toastr": "^19.0.0",
+    "ngx-turnstile": "^0.2.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -62,6 +64,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "prettier": "3.6.2",
     "typescript": "~5.9.2",
-    "typescript-eslint": "8.40.0"
+    "typescript-eslint": "8.40.0",
+    "wrangler": "^4.35.0"
   }
 }
