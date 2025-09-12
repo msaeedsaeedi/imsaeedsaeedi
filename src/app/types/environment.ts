@@ -1,3 +1,5 @@
 export interface Environment {
-    baseUrl: string;
+  baseUrl: string;
+  apiEndpoint: string;
+  turnstilePublicKey: string;
 }

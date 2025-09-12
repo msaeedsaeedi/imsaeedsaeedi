@@ -9,7 +9,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:msaeedsaeedi": "node dist/msaeedsaeedi/server/server.mjs",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "format": "prettier --write 'src/**/*.{ts,html,css}'"
   },
   "prettier": {
     "printWidth": 100,
@@ -39,6 +40,8 @@
     "@angular/router": "^20.3.0",
     "@angular/ssr": "^20.2.2",
     "express": "^5.1.0",
+    "ngx-toastr": "^19.0.0",
+    "ngx-turnstile": "^0.2.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -59,7 +62,9 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "3.6.2",
     "typescript": "~5.9.2",
-    "typescript-eslint": "8.40.0"
+    "typescript-eslint": "8.40.0",
+    "wrangler": "^4.35.0"
   }
 }

@@ -1,0 +1,396 @@
+:host {
+  background-color: rgba(63, 20, 0, 0.05);
+  padding: clamp(2rem, 5vw, 4rem) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+h2 {
+  margin-left: 96px;
+  text-align: left;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--text-color);
+}
+
+.container {
+  margin-left: 96px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(2rem, 8vw, 6rem);
+  max-width: calc(100% - 96px - clamp(1rem, 5vw, 3rem));
+  max-height: calc(100vh - clamp(4rem, 10vw, 8rem));
+  padding: clamp(2rem, 4vw, 3rem);
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Custom scrollbar styling for webkit browsers */
+.container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: clamp(50%, 50vw, 500px);
+}
+
+.contact-form label {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  padding: clamp(0.75rem, 2vw, 1rem);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form textarea {
+  min-height: clamp(6rem, 15vw, 8rem);
+  resize: vertical;
+  font-family: 'Inter', sans-serif;
+}
+
+.contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 400px;
+}
+
+.contact-item {
+  margin-bottom: clamp(1.5rem, 4vw, 2rem);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.contact-item:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.contact-label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-item a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+/* Success Animation Styles */
+.success-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(2rem, 5vw, 4rem);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.success-icon {
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+}
+
+.checkmark {
+  width: clamp(3.5rem, 8vw, 5.5rem);
+  height: clamp(3.5rem, 8vw, 5.5rem);
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 0 auto;
+  box-shadow: inset 0px 0px 0px #4ade80;
+  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #4ade80;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: #ffffff;
+  stroke-width: 3;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+.success-title {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.success-message {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  animation: fadeInUp 0.6s ease-out 0.5s both;
+}
+
+/* Form Field Styling */
+.form-field {
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  right: clamp(0.75rem, 2vw, 1rem);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.input-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Input Validation States */
+.contact-form input.valid,
+.contact-form textarea.valid {
+  border-color: #4ade80;
+  background-color: rgba(74, 222, 128, 0.1);
+}
+
+.contact-form input.invalid,
+.contact-form textarea.invalid {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.contact-form input.valid:focus,
+.contact-form textarea.valid:focus {
+  border-color: #22c55e;
+  background-color: rgba(74, 222, 128, 0.15);
+  box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.2);
+}
+
+.contact-form input.invalid:focus,
+.contact-form textarea.invalid:focus {
+  border-color: #dc2626;
+  background-color: rgba(239, 68, 68, 0.15);
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+/* Icon Colors */
+.input-icon svg {
+  color: #4ade80;
+  transition: color 0.3s ease;
+}
+
+.invalid + .input-icon svg {
+  color: #ef4444;
+}
+
+.valid + .input-icon svg {
+  color: #4ade80;
+}
+
+/* Adjust padding for inputs with icons */
+.input-wrapper input,
+.input-wrapper textarea {
+  padding-right: clamp(2.5rem, 5vw, 3rem);
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 300px #4ade80;
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  h2 {
+    margin-left: clamp(1rem, 5vw, 3rem);
+  }
+
+  .container {
+    margin-left: clamp(1rem, 5vw, 3rem);
+    gap: clamp(1.5rem, 5vw, 3rem);
+    max-width: calc(100% - clamp(2rem, 10vw, 6rem));
+    max-height: calc(100vh - clamp(3rem, 8vw, 6rem));
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: clamp(1.5rem, 4vw, 2rem) 0;
+  }
+
+  h2 {
+    margin-left: clamp(1rem, 5vw, 2rem);
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    text-align: center;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+  }
+
+  .container {
+    margin-left: clamp(1rem, 5vw, 2rem);
+    margin-right: clamp(1rem, 5vw, 2rem);
+    max-width: calc(100% - clamp(2rem, 10vw, 4rem));
+    max-height: calc(100vh - clamp(2rem, 6vw, 4rem));
+    flex-direction: column;
+    gap: clamp(2rem, 6vw, 3rem);
+    align-items: stretch;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .contact-form,
+  .contact-info {
+    flex: none;
+    width: 100%;
+    max-width: none;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: clamp(0.875rem, 2.5vw, 1.25rem);
+  }
+
+  .input-wrapper input,
+  .input-wrapper textarea {
+    padding-right: clamp(2.25rem, 4vw, 2.75rem);
+  }
+
+  .input-icon {
+    right: clamp(0.5rem, 1.5vw, 0.75rem);
+    width: 18px;
+    height: 18px;
+  }
+
+  .contact-item {
+    padding: clamp(0.875rem, 2.5vw, 1.25rem);
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    max-width: calc(100% - 2rem);
+    max-height: calc(100vh - 2rem);
+    padding: clamp(1rem, 3vw, 1.5rem);
+  }
+}

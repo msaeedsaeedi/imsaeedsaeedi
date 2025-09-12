@@ -8,9 +8,8 @@ describe('Scrollbar', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Scrollbar]
-    })
-    .compileComponents();
+      imports: [Scrollbar],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Scrollbar);
     component = fixture.componentInstance;

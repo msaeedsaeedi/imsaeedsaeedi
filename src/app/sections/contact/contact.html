@@ -1,0 +1,125 @@
+<h2>Let's Connect</h2>
+
+<div class="container">
+  <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    @if (!isSuccessful()) {
+      <div class="form-field">
+        <label for="email">Email: </label>
+        <div class="input-wrapper">
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            [class.invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+            [class.valid]="contactForm.get('email')?.valid && contactForm.get('email')?.touched"
+          />
+          <div class="input-icon">
+            @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+              </svg>
+            } @else if (contactForm.get('email')?.valid && contactForm.get('email')?.touched) {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20,6 9,17 4,12" />
+              </svg>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="subject">Subject: </label>
+        <div class="input-wrapper">
+          <input
+            id="subject"
+            type="text"
+            formControlName="subject"
+            [class.invalid]="
+              contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched
+            "
+            [class.valid]="contactForm.get('subject')?.valid && contactForm.get('subject')?.touched"
+          />
+          <div class="input-icon">
+            @if (contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched) {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+              </svg>
+            } @else if (contactForm.get('subject')?.valid && contactForm.get('subject')?.touched) {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20,6 9,17 4,12" />
+              </svg>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="message">Message: </label>
+        <div class="input-wrapper">
+          <textarea
+            id="message"
+            formControlName="message"
+            [class.invalid]="
+              contactForm.get('message')?.invalid && contactForm.get('message')?.touched
+            "
+            [class.valid]="contactForm.get('message')?.valid && contactForm.get('message')?.touched"
+          ></textarea>
+          <div class="input-icon">
+            @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+              </svg>
+            } @else if (contactForm.get('message')?.valid && contactForm.get('message')?.touched) {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20,6 9,17 4,12" />
+              </svg>
+            }
+          </div>
+        </div>
+      </div>
+
+      <app-button
+        type="submit"
+        [label]="isSubmitting() ? 'Sending...' : 'Send Message'"
+        [disabled]="!contactForm.valid || isSubmitting()"
+      />
+    } @else {
+      <div class="success-animation">
+        <div class="success-icon">
+          <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+          </svg>
+        </div>
+        <h3 class="success-title">Message Sent Successfully!</h3>
+        <p class="success-message">Thank you for reaching out. I'll get back to you soon.</p>
+      </div>
+    }
+    <ngx-turnstile [siteKey]="siteKey()" theme="auto" formControlName="token" (resolved)="onTurnstileToken($event)"></ngx-turnstile>
+  </form>
+
+  <aside class="contact-info">
+    <div class="contact-item">
+      <span class="contact-label">LinkedIn</span>
+      <a href="https://linkedin.com/in/msaeedsaeedi" target="_blank" rel="noopener noreferrer"
+        >linkedin.com/in/msaeedsaeedi</a
+      >
+    </div>
+    <div class="contact-item">
+      <span class="contact-label">GitHub</span>
+      <a href="https://github.com/msaeedsaeedi" target="_blank" rel="noopener noreferrer"
+        >github.com/msaeedsaeedi</a
+      >
+    </div>
+    <div class="contact-item">
+      <span class="contact-label">Email</span>
+      <a href="mailto:contact@msaeedsaeedi.com">contact&#64;msaeedsaeedi.com</a>
+    </div>
+  </aside>
+</div>
